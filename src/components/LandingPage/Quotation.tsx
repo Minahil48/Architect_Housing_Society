@@ -3,7 +3,7 @@ import React from 'react';
 const Quotation: React.FC = () => {
   return (
     <div
-      className="relative h-[320px] mx-auto bg-cover bg-center"
+      className="relative h-[320px] w-full mx-auto bg-cover bg-center"
       style={{ backgroundImage: `url('/quotationbg.svg')` }}
     >
       <div className="absolute inset-0 bg-secondary opacity-50"></div>

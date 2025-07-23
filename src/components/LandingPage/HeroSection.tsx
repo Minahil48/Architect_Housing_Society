@@ -3,11 +3,11 @@ import Button from '../Button';
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row md:p-8">
-      <div className="flex flex-col items-center lg:items-start justify-center w-full lg:w-1/2 lg:p-12 text-center lg:text-left mb-8 lg:mb-0">
+    <div className="flex flex-col mt-14 lg:flex-row ml-6 md:p-8 lg:p-0">
+      <div className="flex flex-col items-center lg:items-start justify-center w-full p-8 text-center lg:text-left mb-8 lg:mb-0">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-semibold text-gray-900 leading-tight mb-4">
           Bookings
-          <br /> are{' '}
+          <br /> are {' '}
           <span className="relative inline-block pl-3 text-tertiary">
             LIVE!
             <span className="absolute left-0 bottom-0 w-full h-[4px] bg-gradient-to-r from-secondary to-tertiary rounded-md"></span>
@@ -18,15 +18,17 @@ const HeroSection = () => {
           <strong className="text-tertiary">$5000</strong> only!
           Book now and preserve your slot in America's #1 Housing Society!
         </p>
-        <Button value="Book Now" />
+        <div>
+           <Button value="Book Now" />
+        </div>
       </div>
-      <div className="relative w-full lg:w-[1000px] flex lg:p-0 mt-8 lg:mt-0 justify-center">
+      <div className="relative w-full flex mt-8">
         <img
           src="/HeroSectionPic.png"
           alt="Modern House"
           className="max-w-full h-auto rounded-lg"
         />
-        <div className="absolute bottom-4 left-1/2 lg:bottom lg:left-110 
+        <div className="absolute bottom-4 left-1/2 lg:bottom lg:left-85
                       flex flex-col sm:flex-row items-center justify-center 
                       backdrop-blur-xs bg-white/65 rounded-l-xl shadow-lg 
                       p-4 sm:p-6 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg flex-wrap">
