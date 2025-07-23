@@ -1,5 +1,3 @@
-import Navbar from "../../components/Navbar";
-
 const LandingLayout = ({ children }: Readonly<{
   children: React.ReactNode;
 }>) => {

@@ -3,12 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme{
-  --color-primary:#12372A;
-  --color-secondary:#12372A;
-  --color-tertiary:#096846;
-}
-
 @theme inline {
   --radius-sm:calc(var(--radius) - 4px);
   --radius-md:calc(var(--radius) - 2px);

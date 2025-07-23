@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface AnnouncementCardProps {
   imageUrl: string;
@@ -7,7 +8,6 @@ interface AnnouncementCardProps {
   title: string;
   description: string;
   date: string;
-  seeMoreLink: string;
   orientation?: 'horizontal' | 'vertical';
 }
 
@@ -18,7 +18,6 @@ const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
   title,
   description,
   date,
-  seeMoreLink,
   orientation = 'horizontal',
 }) => {
   const isHorizontal = orientation === 'horizontal';
@@ -36,9 +35,11 @@ const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
           isHorizontal ? 'w-full sm:w-2/5 h-40 sm:h-auto' : 'w-full h-96'
         }`}
       >
-        <img
+        <Image
           src={imageUrl}
           alt={imageAlt}
+          width={600}
+          height={400}
           className="object-cover w-full h-full rounded-xl"
         />
         <div className="absolute bottom-2 left-2 bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-md">

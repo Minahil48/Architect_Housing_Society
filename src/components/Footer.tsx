@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { arrowIcon, FbIcon, InstaIcon } from '@/assets/icons/common-icons'
+import { FbIcon, InstaIcon } from '@/assets/icons/common-icons'
 
 function Footer() {
   return (
