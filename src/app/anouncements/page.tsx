@@ -1,73 +1,100 @@
+'use client';
+
 import React from 'react';
-import Image from 'next/image'; // ✅ Import Image
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
 import AnnouncementCard from '@/components/AnouncementCard';
 import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
 
 function Page() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex flex-col items-center lg:items-start gap-8 mt-20 mx-20 sm:mt-24 md:mt-32 px-5 py-8 border-b-1 border-tertiary">
-        <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-primary text-center lg:text-left">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="flex flex-col items-center text-center lg:text-left lg:items-start gap-8 mt-20 mx-20 sm:mt-24 md:mt-32 px-5 py-8 border-b-1 border-tertiary"
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="font-semibold lg:text-7xl sm:text-4xl text-4xl text-primary text-center lg:text-left"
+        >
           Announcements
-        </h1>
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20 w-full">
-          <div className="w-full lg:w-1/2 xl:w-1/3 h-auto relative rounded-lg overflow-hidden">
+        </motion.h1>
+
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 w-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="relative rounded-lg overflow-hidden"
+          >
             <Image
               src="/img1.svg"
               alt="For Everyone Image"
-              layout="responsive"
-              width={600}
+              width={640}
               height={400}
               className="object-cover rounded-lg"
             />
-          </div>
-          <div className="max-w-xl flex flex-col gap-4 text-center lg:text-left">
-            <h2 className="text-xl text-tertiary font-bold">Grand opening ceremony</h2>
-            <p className="font-bold">25 July 2025</p>
-            <p className="my-4 sm:my-6">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="max-w-xl flex flex-col gap-4 lg:text-left"
+          >
+            <h2 className="md:text-3xl sm:text-sm text-tertiary font-bold">Grand opening ceremony</h2>
+            <p className="font-bold md:text-lg sm:text-sm">25 July 2024</p>
+            <p className="md:text-xl sm:text-xs my-4 sm:my-6">
               Exciting News: The Architect Housing Society is proud to announce the grand opening of our new
               community park on July 15th, 2024. Join us for a day of fun, food, and festivities as we celebrate
               this milestone in creating a greener, more vibrant community!
             </p>
-            <div className="flex justify-center lg:justify-start">
               <Button value="Book now" />
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col lg:flex-row gap-6 my-10 px-4 sm:px-6 lg:px-8 justify-items-center"> 
-        <AnnouncementCard
-          imageUrl="/img2.svg"
-          imageAlt="Investor"
-          tag="For Investors"
-          title="Investment Initiative Launch"
-          description="Read more about GreenFuture Ventures."
-          date="25th June 2024"
-          orientation='vertical'
-        />
-        <AnnouncementCard
-          imageUrl="/img2.svg"
-          imageAlt="Investor"
-          tag="For Investors"
-          title="Investment Initiative Launch"
-          description="Read more about GreenFuture Ventures."
-          date="25th June 2024"
-          orientation='vertical'
-        />
-        <AnnouncementCard
-          imageUrl="/img2.svg"
-          imageAlt="Investor"
-          tag="For Investors"
-          title="Investment Initiative Launch"
-          description="Read more about GreenFuture Ventures."
-          date="25th June 2024"
-          orientation='vertical'
-        />
-      </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+        className="flex flex-col items-center lg:flex-row gap-6 my-10 px-4 sm:px-6 lg:px-8 justify-items-center"
+      >
+        {[1, 2, 3].map((item, index) => (
+          <motion.div
+            key={index}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <AnnouncementCard
+              imageUrl="/img2.svg"
+              imageAlt="Investor"
+              tag="For Investors"
+              title="Investment Initiative Launch"
+              description="Read more about GreenFuture Ventures."
+              date="25th June 2024"
+              orientation="vertical"
+            />
+          </motion.div>
+        ))}
+      </motion.div>
 
       <Footer />
     </div>

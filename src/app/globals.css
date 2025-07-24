@@ -3,6 +3,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/fonts/Nexa-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/fonts/Nexa-Heavy.ttf') format('truetype');
+  font-weight: 600;
+}
+
+:root {
+  --font-nexa: 'Nexa', sans-serif;
+}
+
+
 @theme inline {
   --radius-sm:calc(var(--radius) - 4px);
   --radius-md:calc(var(--radius) - 2px);
